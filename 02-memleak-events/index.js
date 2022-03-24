@@ -8,8 +8,13 @@ function getBytes() {
   return randomBytes(10000)
 }
 
-function onData() {
- getBytes()
+function onData(msg) {
+  getBytes()
+  const items = []
+
+  setInterval(function myInterval() {
+    items.push(msg)
+  }, 200)
 }
 
 function handler(request, response) {
